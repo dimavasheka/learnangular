@@ -2,6 +2,12 @@ import {Component} from '@angular/core';
 
 @Component({
     selector: 'my-app',
-    template: '<h1>Angular 2</h1>'
+    templateUrl: './app/app.component.html'
 })
-export class AppComponent { }
+export class AppComponent {
+    title: string;
+
+    constructor () {
+        this.title = 'Angular2';
+    }
+}
