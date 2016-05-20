@@ -8,20 +8,9 @@
 <div class="ui text container">
     <div class="ui segment form">
         <div class="ui fluid action input">
-            <input type="text" class="form-control" name="title" placeholder="Что нужно сделать?" #input>
-            <button type="button" class="ui primary button" (click)="addTodo(input)">Добавить</button>
+            <input type="text" class="form-control" name="title" placeholder="Что нужно сделать?" (keyup.enter)="addTodo(input.value); input.value=''" #input>
+            <button type="button" class="ui primary button" (click)="addTodo(input.value); input.value=''">Добавить</button>
         </div>
     </div>
-    <div class="ui raised segment" *ngIf="todos.length > 0">
-        <div id="todos" class="ui middle aligned divided selection list">
-            <div class="todo item" *ngFor="let todo of todos">
-                <div class="ui checkbox">
-                    <input type="checkbox">
-                    <label>{{todo}}</label>
-                </div>
-
-                <button  class="ui red icon button"><i class="trash outline icon"></i></button>
-            </div>
-        </div>
-    </div>
+    <todo-list [todos]="todos"></todo-list>
 </div>
